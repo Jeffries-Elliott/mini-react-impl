@@ -1,4 +1,5 @@
 import createFiber from "../reconciler/ReactFiber.js";
+import scheduleUpdateOnFiber from "../reconciler/ReactFiberWorkLoop.js";
 
 /**
  * 更新容器的方法
@@ -6,11 +7,13 @@ import createFiber from "../reconciler/ReactFiber.js";
  * @param {*} container 容器的 DOM 节点
  */
 function updateContainer(element, container) {
-  createFiber(element, {
+  const fiber = createFiber(element, {
     // 该对象就是我的父 fiber 对象，里面会放置一些核心的属性
     type: container.nodeName.toLowerCase(),
     stateNode: container,
   });
+  console.log(fiber);
+  scheduleUpdateOnFiber(fiber);
 }
 
 class ReactDOMRoot {

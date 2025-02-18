@@ -14,4 +14,13 @@ import ReactDom from "./packages/react-dom/ReactDom.js"
 const root = ReactDom.createRoot(document.getElementById('root'));
 console.log(root);
 
-root.render("test")
+// root.render("test")
+root.render(
+  <div className="container">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+    </ul>
+    3
+  </div>
+);
