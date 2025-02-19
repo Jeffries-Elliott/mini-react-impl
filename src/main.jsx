@@ -14,9 +14,13 @@ import ReactDom from "./packages/react-dom/ReactDom.js"
 const root = ReactDom.createRoot(document.getElementById('root'));
 console.log(root);
 
+function handleClick() {
+  console.log('handleClick')
+}
+
 // root.render("test")
 root.render(
-  <div className="container">
+  <div className="container" onClick={handleClick}>
     <ul>
       <li>1</li>
       <li>2</li>

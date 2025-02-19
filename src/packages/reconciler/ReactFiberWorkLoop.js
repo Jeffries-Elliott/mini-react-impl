@@ -1,3 +1,6 @@
+import beginWork from "./ReactFiberBeginWork.js";
+
+
 // work in progress，表示正在进行的工作
 // 保存当前正在进行的工作 fiber 对象
 let wip = null;
@@ -36,7 +39,7 @@ function workloop(deadline) {
  * 4. 进行渲染
  */
 function performUnitOfWork() {
-  // beginWork(wip); // TODO 处理当前的 fiber 对象
+  beginWork(wip); // 处理当前的 fiber 对象
 
   // 如果有子节点，将 wip 更新为子节点
   if (wip.child) {
