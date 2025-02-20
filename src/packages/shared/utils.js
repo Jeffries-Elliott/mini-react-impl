@@ -38,6 +38,15 @@ export function isUndefined(s) {
   return s === undefined;
 }
 
+/**
+ * 判断参数 arr 是否为数组
+ * @param {*} arr
+ * @returns boolean
+ */
+export function isArray(arr) {
+  return Array.isArray(arr);
+}
+
 
 /**
  * 更新DOM节点上的属性
