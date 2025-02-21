@@ -1,4 +1,6 @@
 import beginWork from "./ReactFiberBeginWork.js";
+import commitWorker from "./ReactFiberCommitWork.js";
+import completeWork from "./ReactFiberCompleteWork.js";
 
 
 // work in progress，表示正在进行的工作
@@ -47,7 +49,7 @@ function performUnitOfWork() {
     return;
   }
 
-  // completeWork(wip); // TODO 当前fiber 处理完毕
+  completeWork(wip); // TODO 当前fiber 处理完毕
 
   // 如果没有子节点，就需要找到兄弟节点
   let next = wip; // 先缓存一下当前的 wip
@@ -62,14 +64,17 @@ function performUnitOfWork() {
     next = next.return;
 
     // TODO 在寻找父亲那一辈的兄弟节点之前，先执行一下 completeWork 方法
-    // completeWork(next);
+    completeWork(next);
   }
 
   // 执行到这里，说明整个 fiber 树都处理完了
   wip = null;
 }
 
-// TODO 将 wipRoot 提交到 DOM 节点上
-function commitRoot() {}
+// 将 wipRoot 提交到 DOM 节点上
+function commitRoot() {
+  commitWorker(wipRoot);
+  wipRoot = null;
+}
 
 export default scheduleUpdateOnFiber;
