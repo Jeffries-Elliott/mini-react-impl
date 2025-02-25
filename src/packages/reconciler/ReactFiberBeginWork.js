@@ -1,5 +1,10 @@
 import {ClassComponent, FunctionComponent, HostComponent, HostText, Fragment} from "./ReactWorkTags.js";
-import {updateHostComponent, updateHostTextComponent} from "./ReactFiberReconciler.js";
+import {
+  updateClassComponent,
+  updateFunctionComponent,
+  updateHostComponent,
+  updateHostTextComponent
+} from "./ReactFiberReconciler.js";
 
 /**
  * 根据wip的tag值，区分不同操作
@@ -11,8 +16,10 @@ function beginWork(wip) {
       updateHostComponent(wip);
       break;
     case FunctionComponent:
+      updateFunctionComponent(wip);
       break;
     case ClassComponent:
+      updateClassComponent(wip);
       break;
     case HostText:
       updateHostTextComponent(wip);

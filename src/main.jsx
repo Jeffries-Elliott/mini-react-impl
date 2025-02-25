@@ -10,21 +10,38 @@
 // )
 
 import ReactDom from "./packages/react-dom/ReactDom.js"
+import React from "./packages/react/React.js"
 
 const root = ReactDom.createRoot(document.getElementById('root'));
-console.log(root);
 
 function handleClick() {
   console.log('handleClick')
 }
+// const App = () => {
+//   return (
+//     <div className="container" onClick={handleClick}>
+//       <ul>
+//         <li>function</li>
+//         <li>1</li>
+//         <li>2</li>
+//       </ul>
+//       3
+//     </div>
+//   )
+// }
 
-// root.render("test")
-root.render(
-  <div className="container" onClick={handleClick}>
-    <ul>
-      <li>1</li>
-      <li>2</li>
-    </ul>
-    3
-  </div>
-);
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container" onClick={handleClick}>
+        <ul>
+          <li>class</li>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+        3
+      </div>
+    );
+  }
+}
+root.render(<App />);

@@ -26,7 +26,6 @@ class ReactDOMRoot {
    * @param {*} children 要挂载到根节点的 vnode 树
    */
   render(children) {
-    console.log(children);
     updateContainer(children, this._internalRoot);
   }
 }

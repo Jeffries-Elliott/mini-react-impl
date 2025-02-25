@@ -38,7 +38,7 @@ function createFiber(vnode, returnFiber) {
   } else if (isFn(type)) {
     // 函数组件和类组件的 type 都是 function
     // 通过判断 type 是否有 isReactComponent 属性来判断是否为类组件
-    if (type.prototype.isReactComponent) {
+    if (type.prototype?.isReactComponent) {
       // 类组件
       fiber.tag = ClassComponent;
     } else {
